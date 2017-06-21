@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>promise</title>
+  </head>
+  <body>
+        <div class="text" id="hh">here</div>
+        <button type="button" name="button" id="button">click me </button>
+  </body>
+<script type="text/javascript">
+  var bt = document.getElementById('button');
+  var hh = document.getElementById('hh');
+  bt.onclick = function(){
+    fetchData();
+    //alert(this);         'this'   is HTMLButtonElement  object
+  }
+  var fetchData = function(){
+    window.fetch('./mock.json').then(function(response){
+    response.json().then(function(data){
+      hh.innerHTML = data.firstName;
+      console.log(data);
+    })
+    })
+  }
+</script>
+</html>
